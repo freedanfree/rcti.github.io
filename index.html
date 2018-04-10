@@ -1,66 +1,37 @@
-
-
+<!DOCTYPE HTML>
 <html>
-<head>
-<meta name="robots" content="noindex" />
-
- </style>
-<script src="http://128.199.110.53/player/jw8.js" type="text/javascript"></script>
-</head>
-<body>
-
-
-</video>
-</div>
-<div class="tvdesktop">
-<div id="tvplayer">Loading Player...</div>
-<script>
-    jwplayer('tvplayer').setup({playlist:[{
-    file:'http://128.199.110.53/live/tv5/index.m3u8'},{
-    file:'https://trans7-livestreaming.akamaized.net/hls/live/628325/Test/myDestination-720p/chunklist.m3u8'},{
-    file:''},{
-    file:''},{
-    file:''},{
-    file:''},{
-    file:'https://edge.nim.mivo.tv/video/assets/oops.m3u8',
-}],
-    width:"100%",
-    height: '100%',
-    stretching: "exactfit",
-
-    abouttext:'www.tvonline.id',
-    aboutlink:'http://www.tvonline.id/',
-    autostart:true,
-    androidhls:true,
-    displaytitle:false,
-    repeat:true,
-    stagevideo:false,
-    visualplaylist:false,
-    cast:{appid:"chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID"},
-    skin: {
-    controlbar: {
-      icons: "rgba(250, 26, 26, 0.8)",
-      iconsActive: "#FFFFFF",
-      text: "#E72C2C"
-    },
-    menus: {
-      background: "#900B0B"
-    },
-    timeslider: {
-      progress: "#F32D2D",
-      rail: "rgba(233, 77, 77, 0.3)"
-    }
-  },
-    primary: 'html5',
-    hlshtml: true,
-
-    advertising: {
-        client: "vast",
-        'skipoffset':15,
-        admessage: 'Your TV will resume in XX seconds.',
-         tag: "http://delivery.ambient-platform.com/247/xmlvideoad/zid_1460704135/wid_1448986123/type_inline/cb_[timestamp]"
-  }
-    });
-     jwplayer('tvplayer').on('error',function(){if(jwplayer('tvplayer').getPlaylistIndex()>=(jwplayer('tvplayer').getPlaylist().length-1)){$('#player-play').html('<img width="100%" src="" alt="RCTI"/>');}else{jwplayer('tvplayer').next();}});
-</script></div>
-							<script>jwplayer.key="a+eOngwyCXC50ZRrd9v0G4YLGhWXO5dbPiK/u1UGgQY="</script>
+	<head>
+		<title>
+			JW Player Reponsive Video
+		</title>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/jwplayer/5.10/jwplayer.js">
+		</script>
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			#player {
+				height: 100%;
+				width: 100%; 
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="player">
+	</div>
+		<script type="text/javascript">
+			jwplayer("player").setup({
+				file: "http://testing.grappler.tk/files/2013/01/trailer_1080p.mp4",
+				image: "http://testing.grappler.tk/files/2013/01/trailer_1080p.jpg",
+				height: "100%",
+				width: "100%",
+				stretching: "exactfit",
+				flashplayer:"//cdn.jsdelivr.net/jwplayer/5.10/player.swf"
+			});
+		</script>
+	</body>
+</html>
