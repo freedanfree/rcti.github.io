@@ -1,27 +1,133 @@
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="http://live4.indostreamingtv.com/player/jw8.js" type="text/javascript"></script>
+</head>
+<body>
 
 
-
-<video id="video" style="position:absolute;" controls autoplay></video>
+</video>
+</div>
+<div class="tvdesktop">
+<div id="tvplayer">Loading Player...</div>
 <script>
-    if(Hls.isSupported())
-    {
-        var video = document.getElementById('video');
-        video.volume = 0.9;
-        var hls = new Hls();
-        hls.loadSource('https://cdn-livetv2.metube.id/hls/rcti_480/index.m3u8');
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED,function()
-        {
-            video.play();
-        });
+    jwplayer('tvplayer').setup({playlist:[{
+    file:'http://live4.indostreamingtv.com/live/tv66/index.m3u8'},{
+    file:'https://cdn-livetv2.metube.id/hls/rcti.m3u8'},{
+    file:''},{
+    file:''},{
+    file:''},{
+    file:''},{
+    file:'https://edge.nim.mivo.tv/video/assets/oops.m3u8',
+}],
+    width:"100%",
+    height: '100%',
+    stretching: "exactfit",
+
+    abouttext:'www.tvonline.id',
+    aboutlink:'http://www.tvonline.id/',
+    autostart:true,
+    androidhls:true,
+    displaytitle:false,
+    repeat:true,
+    stagevideo:false,
+    visualplaylist:false,
+    cast:{appid:"chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID"},
+    skin: {
+    controlbar: {
+      icons: "rgba(250, 26, 26, 0.8)",
+      iconsActive: "#FFFFFF",
+      text: "#E72C2C"
+    },
+    menus: {
+      background: "#900B0B"
+    },
+    timeslider: {
+      progress: "#F32D2D",
+      rail: "rgba(233, 77, 77, 0.3)"
     }
-    else if (video.canPlayType('application/vnd.apple.mpegurl'))
-    {
-        video.src = 'https://cdn-livetv2.metube.id/hls/rcti_480/index.m3u8';
-        video.addEventListener('canplay',function()
-        {
-            video.play();
-        });
-    }
+  },
+    primary: 'html5',
+    hlshtml: true,
+
+    advertising: {
+        client: "vast",
+        'skipoffset':15,
+        admessage: 'Your TV will resume in XX seconds.',
+         tag: "http://delivery.ambient-platform.com/247/xmlvideoad/zid_1460704135/wid_1448986123/type_inline/cb_[timestamp]"
+  }
+    });
+     jwplayer('tvplayer').on('error',function(){if(jwplayer('tvplayer').getPlaylistIndex()>=(jwplayer('tvplayer').getPlaylist().length-1)){$('#player-play').html('<img width="100%" src="" alt="RCTI"/>');}else{jwplayer('tvplayer').next();}});
+</script></div>
+
+
+<!--
+<script type="text/javascript" src="http://live4.indostreamingtv.com/jwplayer.js"></script>
+							<script>jwplayer.key="a+eOngwyCXC50ZRrd9v0G4YLGhWXO5dbPiK/u1UGgQY="</script>
+							<div id="streaming">Loading the player ...</div> 
+							
+							
+							 <script type="text/javascript">
+                            	jwplayer("streaming").setup({
+                            		sources: [{
+                            			file: "http://live4.indostreamingtv.com/live/tv66/index.m3u8"
+                            		},{
+                            			file: ""
+                            		}],
+                            		rtmp: {
+                            			bufferlength: 3
+                            		},
+                            		fallback: true,
+                                             image: '',
+        width: '100%',
+        height: '100%',
+        stretching: "exactfit",
+	'logo':{'file':'', 'hide':'false', 'out':'0.3','position':'bottom-right','link':'http://www.tvonline.id'},
+        stretching: "exactfit",
+        autostart: true,
+        androidhls:true,
+        abouttext: "www.tvonline.id Player",
+        aboutlink: "http://www.tvonline.id/",
+        primary: 'flash',
+        advertising: {
+        client: "vast",
+        'skipoffset':15,
+        admessage: 'Your TV will resume in XX seconds.',
+        tag: "http://delivery.ambient-platform.com/247/xmlvideoad/zid_1460704135/wid_1448986123/type_inline/cb_[timestamp]"
+  }
+    });
+                            </script>
+
+
+<!--<script type="text/javascript">
     </script>
+    <script src="jwplayer75s.js"></script>
+  </head>
+<body style="width:100%;height:100%;padding:0;margin:0;background-color:white;">
+<div align="center">
+<div id="myElement"></div>
+<script type="text/javascript">
+    jwplayer("myElement").setup({
+        primary : 'flash',
+        file: "http://live4.tvonline.id/live/tv6/index.m3u8",   
+        title: 'Live Streaming', 
+        image: '',
+        width: '100%',
+        height: '100%',
+        stretching: "exactfit",
+	'logo':{'file':'', 'hide':'false', 'out':'0.3','position':'bottom-right','link':'http://www.tvonline.id'},
+        stretching: "exactfit",
+        autostart: true,
+        androidhls:true,
+        abouttext: "www.tvonline.id Player",
+        aboutlink: "http://www.tvonline.id/",
+        primary: 'html5',
+        advertising: {
+        client: "vast",
+        'skipoffset':15,
+        admessage: 'Your TV will resume in XX seconds.',
+        tag: "http://delivery.ambient-platform.com/247/xmlvideoad/zid_1460704135/wid_1448986123/type_inline/cb_[timestamp]"
+  }
+    });
+   jwplayer("tv").onError(function(){
+       jwplayer("tv").load([{file:"http://188.166.237.75/live/tv7/index.m3u8"}]);
+       jwplayer("tv").play();
+    });
+</script>
